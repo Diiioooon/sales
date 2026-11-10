@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block body %}
+<h2>Edit Category</h2>
+<form method="post">
+ <label>Code</label><input name="catCode" value="{{ c[0] }}" readonly>
+ <label>Name</label><input name="catName" value="{{ c[1] }}" required>
+ <label>Description</label><input name="catDesc" value="{{ c[2] }}">
+ <p><button>Save</button> <a href="/categories">Cancel</a></p>
+</form>
+{% endblock %}

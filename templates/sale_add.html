@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block body %}
+<h2>Record Sale</h2>
+<p class="err">{{ error }}</p>
+<form method="post">
+ <label>Product</label>
+ <select name="prodID">
+  {% for p in prods %}
+  <option value="{{ p[0] }}">{{ p[0] }} - {{ p[1] }}</option>
+  {% endfor %}
+ </select>
+ <label>Date</label><input type="date" name="saleDate" required>
+ <label>Quantity</label><input type="number" name="saleQty" required>
+ <p><button>Save</button> <a href="/sales">Cancel</a></p>
+</form>
+{% endblock %}

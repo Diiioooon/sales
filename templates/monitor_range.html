@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block body %}
+<h2>Sales Monitoring (Date Range)</h2>
+<a href="/">Back to Menu</a>
+<form method="get">
+ Date From: <input type="date" name="date_from" value="{{ date_from }}" required>
+ Date To: <input type="date" name="date_to" value="{{ date_to }}" required>
+ <button>Generate</button>
+</form>
+{% if date_from != "" %}
+<table>
+<tr><th>Record #</th><th>Product</th><th>Date</th><th>Quantity</th><th>Status</th><th>Amount</th></tr>
+{% for r in records %}
+<tr><td>{{ r[0] }}</td><td>{{ r[2] }}</td><td>{{ r[3] }}</td><td>{{ r[4] }}</td><td>{{ r[5] }}</td><td>{{ r[6] }}</td></tr>
+{% endfor %}
+</table>
+<p>Total Quantity Sold: {{ total_qty }}<br>Total Amount: P{{ total_amount }}</p>
+<p>Date Generated: {{ today }}</p>
+{% endif %}
+{% endblock %}

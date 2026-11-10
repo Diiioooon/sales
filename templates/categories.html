@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block body %}
+<h2>Categories Management</h2>
+<a href="/categories/add">Add a Category Here</a> | <a href="/">Back to Menu</a>
+<p class="err">{{ error }}</p>
+<table>
+<tr><th>Code</th><th>Name</th><th>Description</th><th>Actions</th></tr>
+{% for r in rows %}
+<tr>
+ <td>{{ r[0] }}</td><td>{{ r[1] }}</td><td>{{ r[2] }}</td>
+ <td><a href="/categories/edit/{{ r[0] }}">Edit</a> | <a href="/categories/delete/{{ r[0] }}">Del</a></td>
+</tr>
+{% endfor %}
+</table>
+{% endblock %}

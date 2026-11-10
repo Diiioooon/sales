@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block body %}
+<h2>Sales Recording</h2>
+<a href="/sales/add">Record Sale Here</a> | <a href="/">Back to Menu</a>
+<table>
+<tr><th>Record #</th><th>Product ID</th><th>Date</th><th>Quantity</th><th>Status</th><th>Action</th></tr>
+{% for r in rows %}
+<tr>
+ <td>{{ r[0] }}</td><td>{{ r[1] }}</td><td>{{ r[2] }}</td><td>{{ r[3] }}</td><td>{{ r[4] }}</td>
+ <td>
+  {% if r[4] == "Active" %}
+  <a href="/sales/cancel/{{ r[0] }}">Cancel</a>
+  {% endif %}
+ </td>
+</tr>
+{% endfor %}
+</table>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block body %}
+<h2>Products Management</h2>
+<a href="/products/add">Add a Product Here</a> | <a href="/">Back to Menu</a>
+<p class="err">{{ error }}</p>
+<table>
+<tr><th>ID</th><th>Category</th><th>Name</th><th>Price</th><th>Actions</th></tr>
+{% for r in rows %}
+<tr>
+ <td>{{ r[0] }}</td><td>{{ r[1] }}</td><td>{{ r[2] }}</td><td>{{ r[3] }}</td>
+ <td><a href="/products/edit/{{ r[0] }}">Edit</a> | <a href="/products/delete/{{ r[0] }}">Del</a></td>
+</tr>
+{% endfor %}
+</table>
+{% endblock %}

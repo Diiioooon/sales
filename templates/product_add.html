@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block body %}
+<h2>Add Product</h2>
+<p class="err">{{ error }}</p>
+<form method="post">
+ <label>Product ID</label><input type="number" name="prodID" required>
+ <label>Category</label>
+ <select name="catCode">
+  {% for c in cats %}
+  <option value="{{ c[0] }}">{{ c[0] }} - {{ c[1] }}</option>
+  {% endfor %}
+ </select>
+ <label>Name</label><input name="prodName" required>
+ <label>Price</label><input type="number" step="0.01" name="prodPrice" required>
+ <p><button>Save</button> <a href="/products">Cancel</a></p>
+</form>
+{% endblock %}

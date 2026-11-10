@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block body %}
+<h2>Add Category</h2>
+<p class="err">{{ error }}</p>
+<form method="post">
+ <label>Code</label><input type="number" name="catCode" required>
+ <label>Name</label><input name="catName" required>
+ <label>Description</label><input name="catDesc">
+ <p><button>Save</button> <a href="/categories">Cancel</a></p>
+</form>
+{% endblock %}

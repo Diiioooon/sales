@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block body %}
+<h2>Edit Product</h2>
+<form method="post">
+ <label>Product ID</label><input name="prodID" value="{{ p[0] }}" readonly>
+ <label>Category</label>
+ <select name="catCode">
+  {% for c in cats %}
+  <option value="{{ c[0] }}" {% if c[0] == p[1] %}selected{% endif %}>{{ c[0] }} - {{ c[1] }}</option>
+  {% endfor %}
+ </select>
+ <label>Name</label><input name="prodName" value="{{ p[2] }}" required>
+ <label>Price</label><input type="number" step="0.01" name="prodPrice" value="{{ p[3] }}" required>
+ <p><button>Save</button> <a href="/products">Cancel</a></p>
+</form>
+{% endblock %}
